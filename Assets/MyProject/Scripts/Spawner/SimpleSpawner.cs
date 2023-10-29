@@ -16,3 +16,8 @@ public class SimpleSpawner : MonoBehaviour
         
     }
 }
+
+public interface ISpawner
+{
+
+}
