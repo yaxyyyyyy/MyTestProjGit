@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnerEnemy : MonoBehaviour
+public class SpawnerEnemy : SimpleSpawner
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private bool _isVisible;
+    public bool IsVisible => _isVisible;
 
-    // Update is called once per frame
-    void Update()
+    void OnBecameVisible()
     {
-        
+        _isVisible = true;
+    }
+    void OnBecameInvisible()
+    {
+        _isVisible = false;
+        //камера просмотра сцены (в редкатировании) также учитывается
+        //Debug.Log("меня не видно");
     }
 }
