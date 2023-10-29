@@ -9,27 +9,27 @@ public class PlayerMovement : MonoBehaviour
     //- связь полей через общую ссылку на приравненные Transform
     //orientation у него конечно ещё страннее
     [Header("Movement")]
-    public float MoveSpeed;
+    [SerializeField] private float _moveSpeed;
     [SerializeField] private PlayerCamera OrientationCamera;
     private Transform _orientation => OrientationCamera.Orientation;
-    float _horizontalInput;
-    float _verticalInput;
+    private float _horizontalInput;
+    private float _verticalInput;
     Vector3 _moveDirection;
     [SerializeField] private Rigidbody _rBody;
 
     [Header("Jump")]
-    public KeyCode jumpKey = KeyCode.Space;
-    public float JumpForce = 12;
-    public float JumpCooldown = 0.25f;
-    public float AirMultiplier = 0.4f;
-    public bool IsReadyToJump = true;
+    [SerializeField] private KeyCode _jumpKey = KeyCode.Space;
+    [SerializeField] private float _jumpForce = 12;
+    [SerializeField] private float _jumpCooldown = 0.25f;
+    [SerializeField] private float _airMultiplier = 0.4f;
+    [SerializeField] private bool _isReadyToJump = true;
 
 
     [Header("Ground Check")]
-    public float PlayerHeight = 2f;
-    public LayerMask GroundMask;
-    bool _isGrounded;
-    public float GroundDrag = 5f;
+    [SerializeField] private float PlayerHeight = 2f;
+    [SerializeField] private LayerMask GroundMask;
+    [SerializeField] private float GroundDrag = 5f;
+    private bool _isGrounded;
 
     private void Start()
     {
@@ -59,28 +59,28 @@ public class PlayerMovement : MonoBehaviour
     }
     private void SetPlayerControlUpd()
     {
-        _rBody.velocity = _rBody.velocity.sqrMagnitude > MoveSpeed * MoveSpeed ? _rBody.velocity.normalized * MoveSpeed : _rBody.velocity;
+        _rBody.velocity = _rBody.velocity.sqrMagnitude > _moveSpeed * _moveSpeed ? _rBody.velocity.normalized * _moveSpeed : _rBody.velocity;
     }
 
     private void SetInputJumpUpd()
     {
-        if(Input.GetKey(jumpKey) && IsReadyToJump && _isGrounded)
+        if(Input.GetKey(_jumpKey) && _isReadyToJump && _isGrounded)
         {
-            IsReadyToJump = false;
+            _isReadyToJump = false;
             GetJump();
 
-            Invoke(nameof(ResetJump), JumpCooldown);
+            Invoke(nameof(ResetJump), _jumpCooldown);
         }
     }
 
     private void GetJump()
     {
         _rBody.velocity = new Vector3(_rBody.velocity.x,0f,_rBody.velocity.z);
-        _rBody.AddForce(transform.up * JumpForce, ForceMode.Impulse);
+        _rBody.AddForce(transform.up * _jumpForce, ForceMode.Impulse);
     }
     private void ResetJump()
     {
-        IsReadyToJump = true;
+        _isReadyToJump = true;
     }
     private void FixedUpdate()
     {
@@ -93,11 +93,11 @@ public class PlayerMovement : MonoBehaviour
         _moveDirection = _orientation.forward * _verticalInput + _orientation.right * _horizontalInput;
         if (_isGrounded)
         {
-            _rBody.AddForce(_moveDirection.normalized * MoveSpeed * 10f, ForceMode.Force);
+            _rBody.AddForce(_moveDirection.normalized * _moveSpeed * 10f, ForceMode.Force);
         }
         else
         {
-            _rBody.AddForce(_moveDirection.normalized * MoveSpeed * 10f * AirMultiplier, ForceMode.Force);
+            _rBody.AddForce(_moveDirection.normalized * _moveSpeed * 10f * _airMultiplier, ForceMode.Force);
         }
     }
 
