@@ -6,11 +6,11 @@ using UnityEngine.Pool;
 
 public class Pool : MonoBehaviour, IPool
 {
-    [SerializeField] private int _size;
+    [SerializeField] protected int _size;
     [SerializeField] private ItemInPool _prefab;
     [SerializeField] private Transform _container;
 
-    private List<ItemInPool> _pool;
+    protected List<ItemInPool> _pool;
 
     public void CreatePool(int size)
     {
@@ -21,10 +21,13 @@ public class Pool : MonoBehaviour, IPool
 
     public IItemInPool CreateItemInPool(int numberName)
     {
+        _container = _container == null ? gameObject.transform : _container;
+
         var newObj = GameObject.Instantiate(_prefab.GetGameObject(), _container);
         var answer = newObj.GetComponent<ItemInPool>();
         answer.InstantinatePoolObj("_" + numberName);
         _pool.Add(answer);
+        answer.EntryToPool();
         return answer;
     }
 

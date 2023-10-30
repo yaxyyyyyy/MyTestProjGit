@@ -24,7 +24,9 @@ public class ItemInPool : MonoBehaviour,IItemInPool
     {
         //возвращение в пул
         gameObject.transform.position = Vector3.zero;
+        Debug.Log("1");
         gameObject.SetActive(false);
+        Debug.Log("2");
         Ev_EntryToPool?.Invoke();
         Ev_EntryToPool.RemoveAllListeners();
     }

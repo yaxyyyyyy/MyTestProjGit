@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class SimpleSpawner : MonoBehaviour
+public class SimpleSpawner : MonoBehaviour, ISpawner
 {
-    [SerializeField] private Pool _pool;
+    [SerializeField] protected Pool _pool;
 
     public ItemInPool SpawnItem()
     {
@@ -18,5 +18,5 @@ public class SimpleSpawner : MonoBehaviour
 
 public interface ISpawner
 {
-    public void SpawnItem();
+    public abstract ItemInPool SpawnItem();
 }

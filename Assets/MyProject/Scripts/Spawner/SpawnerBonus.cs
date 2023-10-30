@@ -7,6 +7,8 @@ public class SpawnerBonus : SimpleSpawner
     [SerializeField] private float _maxTimeCuldown = 10f;
     [SerializeField] private float _currentTime;
     [SerializeField] private bool _isOpen;
+
+    [SerializeField] private ItemInPool Test;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,7 @@ public class SpawnerBonus : SimpleSpawner
                 _currentTime = _maxTimeCuldown;
                 _isOpen = false;
                 var itemInPool = this.SpawnItem();
+                Test = itemInPool;
                 itemInPool.Ev_EntryToPool.AddListener(SwapOpenSpawner);
             }
         }
@@ -32,7 +35,7 @@ public class SpawnerBonus : SimpleSpawner
 
     private void SwapOpenSpawner()
     {
-        //подобрали бонус обьект и спавнер уходит в перезарядку
+        //подобрали бонус-обьект и спавнер уходит в перезарядку
         _isOpen = true;
 
     }

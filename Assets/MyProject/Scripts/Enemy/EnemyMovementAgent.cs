@@ -5,7 +5,13 @@ using UnityEngine.AI;
 
 public class EnemyMovementAgent : MonoBehaviour
 {
-    [SerializeField] NavMeshAgent _agent;
+    [SerializeField] private Transform _playerTransform;
+    [SerializeField] private NavMeshAgent _agent;
+
+    public void CreateEnemyMovementAgent(Transform target)
+    {
+        _playerTransform = target;
+    }
     void Start()
     {
         
@@ -14,6 +20,6 @@ public class EnemyMovementAgent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        _agent.SetDestination(_playerTransform.position);
     }
 }
