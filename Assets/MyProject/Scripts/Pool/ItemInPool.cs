@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ItemInPool : MonoBehaviour,IItemInPool
 {
 
+    public UnityEvent Ev_EntryToPool;
     public void InstantinatePoolObj()
     {
         //при первом заполнении пула
@@ -22,7 +24,11 @@ public class ItemInPool : MonoBehaviour,IItemInPool
     {
         //возвращение в пул
         gameObject.transform.position = Vector3.zero;
+        Debug.Log("1");
         gameObject.SetActive(false);
+        Debug.Log("2");
+        Ev_EntryToPool?.Invoke();
+        Ev_EntryToPool.RemoveAllListeners();
     }
 
 
@@ -45,7 +51,6 @@ public class ItemInPool : MonoBehaviour,IItemInPool
 
 public interface IItemInPool
 {
-
     public GameObject GetGameObject();
 
     /// <summary>

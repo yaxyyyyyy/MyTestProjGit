@@ -6,38 +6,42 @@ using UnityEngine.Pool;
 
 public class Pool : MonoBehaviour, IPool
 {
-    [SerializeField] private int _size;
+    [SerializeField] protected int _size;
     [SerializeField] private ItemInPool _prefab;
     [SerializeField] private Transform _container;
 
-    private List<ItemInPool> _pool;
+    protected List<ItemInPool> _pool;
 
     public void CreatePool(int size)
     {
         _size = size;
         _pool = new List<ItemInPool>(_size);
-        for (int i = 0; i < _size; i++) { CreateObjectInPool(i); }
+        for (int i = 0; i < _size; i++) { CreateItemInPool(i); }
     }
 
-    public IItemInPool CreateObjectInPool(int numberName)
+    public IItemInPool CreateItemInPool(int numberName)
     {
+        _container = _container == null ? gameObject.transform : _container;
+
         var newObj = GameObject.Instantiate(_prefab.GetGameObject(), _container);
         var answer = newObj.GetComponent<ItemInPool>();
         answer.InstantinatePoolObj("_" + numberName);
         _pool.Add(answer);
+        answer.EntryToPool();
         return answer;
     }
 
-    public IItemInPool GetPoolObj()
+    public IItemInPool GetItemInPool()
     {
         var answer = _pool.Where(x => !x.GetGameObject().activeSelf).FirstOrDefault();
         if (answer == null)
         {
             _size++;
-            answer = (ItemInPool)CreateObjectInPool(_size++);
+            answer = (ItemInPool)CreateItemInPool(_size++);
         }
         return answer;
     }
+    public ItemInPool GetRealItemInPool() => (ItemInPool)GetItemInPool();
 
     private void Start()
     {
@@ -48,7 +52,7 @@ public class Pool : MonoBehaviour, IPool
 
     public void TestBtnGetPoolObj()
     {
-        ((ItemInPool)GetPoolObj()).ExitFromPool(Vector3.up);
+        ((ItemInPool)GetItemInPool()).ExitFromPool(Vector3.up);
         //GetPoolObj().ExitFromPool();
     }
 }
@@ -58,9 +62,9 @@ public interface IPool
 
     void CreatePool(int size);
 
-    IItemInPool CreateObjectInPool(int numberName);
+    IItemInPool CreateItemInPool(int numberName);
 
-    IItemInPool GetPoolObj();
+    IItemInPool GetItemInPool();
 
     private void Start()
     {
