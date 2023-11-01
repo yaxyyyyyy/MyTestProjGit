@@ -9,6 +9,11 @@ public class BonusItem : ItemInPool
     private void OnCollisionEnter(Collision collision)
     {
         this.EntryToPool();
+        GetBonus(collision.gameObject);
+    }
+
+    public void GetBonus(GameObject targetBonus)
+    {
         Debug.Log("bonus");
     }
 }

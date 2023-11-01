@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, IMove
 {
     //https://www.youtube.com/watch?v=f473C43s8nE
     //- связь полей через общую ссылку на приравненные Transform
@@ -100,5 +100,11 @@ public class PlayerMovement : MonoBehaviour
             _rBody.AddForce(_moveDirection.normalized * _moveSpeed * 10f * _airMultiplier, ForceMode.Force);
         }
     }
+
+    public void SetMoveSpeed(float speed)
+    { _moveSpeed = speed; }
+
+    public float GetMoveSpeed()
+    { return _moveSpeed; }
 
 }

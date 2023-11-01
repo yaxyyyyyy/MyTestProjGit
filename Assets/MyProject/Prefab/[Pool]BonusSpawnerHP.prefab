@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 867313033170861392}
   - component: {fileID: 884975904778081916}
   m_Layer: 0
-  m_Name: '[Pool]BonusSpawner'
+  m_Name: '[Pool]BonusSpawnerHP'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _size: 1
-  _prefab: {fileID: 3033285688335743767, guid: 516b6e3c4c59a714f9458e73788e9f85, type: 3}
+  _prefab: {fileID: 2268660851818763424, guid: 8fa80c14226d0a844ad75854ddb5e3d0, type: 3}
   _container: {fileID: 867313033170861392}
 --- !u!1001 &278428686868235048
 PrefabInstance:
@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: _pool
       value: 
       objectReference: {fileID: 884975904778081916}
+    - target: {fileID: 8003781755900151652, guid: 2f7ed3d13f3b3dd4a842aa7b20d96c70, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a18438fff026cd74ea0188deda68073d, type: 2}
     - target: {fileID: 8405990569332027858, guid: 2f7ed3d13f3b3dd4a842aa7b20d96c70, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
