@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BonusItem : ItemInPool
+public abstract class BonusItem : ItemInPool
 {
     [SerializeField] private Rigidbody _rBody;
 
@@ -12,8 +12,8 @@ public class BonusItem : ItemInPool
         GetBonus(collision.gameObject);
     }
 
-    public void GetBonus(GameObject targetBonus)
-    {
-        Debug.Log("bonus");
-    }
+    public abstract void GetBonus(GameObject targetBonus);
+    //{
+    //    Debug.Log("bonus");
+    //}
 }

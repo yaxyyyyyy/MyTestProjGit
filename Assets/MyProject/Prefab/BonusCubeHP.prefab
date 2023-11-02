@@ -153,4 +153,4 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _rBody: {fileID: 6837534062918600119}
-  _healthBonus: 0
+  _healthBonus: 3

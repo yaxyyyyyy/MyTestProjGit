@@ -10,7 +10,7 @@ public class BonusMoveSpeedItem : BonusItem
         this.EntryToPool();
         GetBonus(collision.gameObject);
     }
-    public new void GetBonus(GameObject targetBonus)
+    public override void GetBonus(GameObject targetBonus)
     {
         var move = targetBonus.GetComponent<IMove>();
         if (move != null)

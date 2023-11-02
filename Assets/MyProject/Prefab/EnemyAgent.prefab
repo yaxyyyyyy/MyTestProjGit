@@ -34,6 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8474398664932478156}
+  - {fileID: 4078095438618688473}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &6663186627587341621
@@ -117,6 +118,74 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &3628831750912086998
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4078095438618688473}
+  - component: {fileID: 5327579610460116720}
+  - component: {fileID: 6023763499090316068}
+  m_Layer: 8
+  m_Name: DamageHitBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4078095438618688473
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3628831750912086998}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1627519571364513943}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5327579610460116720
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3628831750912086998}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6023763499090316068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3628831750912086998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e061ba072bb024aad4f06a723b683d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 1
+  _maskEnemy: Enemy
 --- !u!1 &7505698391360256330
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,8 +198,8 @@ GameObject:
   - component: {fileID: 2786541274160786889}
   - component: {fileID: 5948665555399677093}
   - component: {fileID: 5174129756216571635}
-  - component: {fileID: 1912914615702100846}
   - component: {fileID: 8885263557957412243}
+  - component: {fileID: 4443229795110917242}
   m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
@@ -226,27 +295,6 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 1.5, z: 0}
---- !u!114 &1912914615702100846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7505698391360256330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1c1c42803ad7774ba87e8d1b41904a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: 15
-  _maxHealth: 15
-  _itemInPool: {fileID: 7339070789194490091}
-  Ev_SpawnItem:
-    m_PersistentCalls:
-      m_Calls: []
-  Ev_Dead:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &8885263557957412243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,5 +307,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca580cc8cfd0f7d4c97226a019fb2cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: {fileID: 1912914615702100846}
+  _health: {fileID: 4443229795110917242}
   percentSpawn: 30
+--- !u!114 &4443229795110917242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7505698391360256330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c8eb089e78044e4dbefcd052e5fa8e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 15
+  _maxHealth: 15
+  Ev_Dead:
+    m_PersistentCalls:
+      m_Calls: []
+  _itemInPool: {fileID: 7339070789194490091}
+  Ev_SpawnItem:
+    m_PersistentCalls:
+      m_Calls: []

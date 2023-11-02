@@ -13,7 +13,8 @@ public class DamageHitBox : MonoBehaviour
     }
     private void OnTriggerEnter(Collider collider)
     {
+        //var hp = collider.GetComponent<HealthEnemy>();
         var hp = collider.GetComponent<Health>();
-        if(hp != null) { hp.AddDamage(_damage); }
+        if (hp != null) { hp.AddDamage(_damage); }
     }
 }

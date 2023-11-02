@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class HealtchDropItem : MonoBehaviour
 {
-    [SerializeField] private Health _health;
+    [SerializeField] private HealthEnemy _health;
     [SerializeField] private int percentSpawn;
 
     void Start()
     {
-        if(_health == null) { _health = gameObject.GetComponent<Health>(); }
+        if(_health == null) { _health = gameObject.GetComponent<HealthEnemy>(); }
         _health.Ev_SpawnItem.AddListener(Spawn);
     }
 
