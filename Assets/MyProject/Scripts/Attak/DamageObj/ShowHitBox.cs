@@ -13,17 +13,16 @@ public class ShowHitBox : MonoBehaviour, IShowHitBox
     private bool _isShow = false;
     private void Start()
     {
-        _localPositionBoxDefault = _hitBox.transform.localPosition; 
-        ShowBox();
+        _localPositionBoxDefault = _hitBox.transform.localPosition;
+        HideBox();
     }
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0) && !_isShow)        { _isShow = true; }
-        if (_isShow) { _currentTime += Time.deltaTime; }
-        //-?-StateMachine-?-
-        if(_currentTime > _cdBeforeShow && _hitBox.gameObject.activeSelf == false) { ShowBox(); }
-        if (_currentTime > _cdShow && !_hitBox.gameObject.activeSelf) { HideBox(); }
-        if (_currentTime > _cdAfterShow && _isShow) { _isShow = false; _currentTime = 0; }
+        if(Input.GetMouseButtonDown(0) && !_isShow)                                 { _isShow = true; Debug.Log(_currentTime + " GetMouseButtonDown"); }
+        if (_isShow)                                                                { _currentTime += Time.deltaTime; Debug.Log(_currentTime + " _isShow == true"); }
+        if (!_hitBox.gameObject.activeSelf && _currentTime > _cdBeforeShow)         { ShowBox(); Debug.Log(_currentTime); Debug.Log(_currentTime + " ShowBox"); }
+        if (_currentTime > _cdShow && _hitBox.gameObject.activeSelf)                { HideBox(); Debug.Log(_currentTime); Debug.Log(_currentTime + " HideBox"); }
+        if (_currentTime > _cdAfterShow && _isShow)                                 { _isShow = false; _currentTime = 0; Debug.Log(_currentTime + " _isShow = false"); }
 
     }
 

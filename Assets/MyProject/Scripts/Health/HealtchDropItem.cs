@@ -10,7 +10,7 @@ public class HealtchDropItem : MonoBehaviour
     void Start()
     {
         if(_health == null) { _health = gameObject.GetComponent<Health>(); }
-        _health.Ev_Dead.AddListener(Spawn);
+        _health.Ev_SpawnItem.AddListener(Spawn);
     }
 
     public void Spawn()
@@ -21,4 +21,11 @@ public class HealtchDropItem : MonoBehaviour
             Debug.Log(gameObject.transform.position);
         }
     }
+
+    //private void OnEnable()
+    //{
+    //    Debug.Log("health.Ev_Dead.AddListener(Spawn);");
+    //    _health.Ev_Dead.AddListener(Spawn);
+
+    //}
 }

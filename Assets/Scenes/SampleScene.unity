@@ -2110,9 +2110,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hitBox: {fileID: 63588150}
   _currentTime: 0
-  _cdBeforeShow: 0
-  _cdShow: 0
-  _cdAfterShow: 0
+  _cdBeforeShow: 0.3
+  _cdShow: 0.5
+  _cdAfterShow: 0.7
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
