@@ -15,7 +15,7 @@ public abstract class StateMachine
         States[CurrentState].UpdateState();
     }
 
-    public void SwapState(int nextState) { States[CurrentState].Exit(); Debug.Log("swap to " + nextState); CurrentState = nextState; States[CurrentState].Enter(); }
+    public void SwapState(int nextState) { States[CurrentState].Exit(); /*Debug.Log("swap to " + nextState);*/ CurrentState = nextState; States[CurrentState].Enter(); }
 
 }
 
