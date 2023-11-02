@@ -18,13 +18,8 @@ public class BonusSpeedOnPlayer : MonoBehaviour
         _moveComp.SetMoveSpeed(_newSpeed);
         this.enabled = true;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
 
-    // Update is called once per frame
     void Update()
     {
         _time -= Time.deltaTime;

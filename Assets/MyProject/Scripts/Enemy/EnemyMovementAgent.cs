@@ -12,12 +12,8 @@ public class EnemyMovementAgent : MonoBehaviour, IMove
     {
         _playerTransform = target;
     }
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+
     void Update()
     {
         _agent.SetDestination(_playerTransform.position);

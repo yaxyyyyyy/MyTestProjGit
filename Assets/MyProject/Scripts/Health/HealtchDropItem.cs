@@ -6,7 +6,7 @@ public class HealtchDropItem : MonoBehaviour
 {
     [SerializeField] private Health _health;
     [SerializeField] private int percentSpawn;
-    // Start is called before the first frame update
+
     void Start()
     {
         if(_health == null) { _health = gameObject.GetComponent<Health>(); }
@@ -22,10 +22,4 @@ public class HealtchDropItem : MonoBehaviour
         }
     }
 
-    //private void OnEnable()
-    //{
-    //    Debug.Log("health.Ev_Dead.AddListener(Spawn);");
-    //    _health.Ev_Dead.AddListener(Spawn);
-
-    //}
 }

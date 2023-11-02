@@ -9,7 +9,6 @@ public class DamageHitBox : MonoBehaviour
 
     private void Start()
     {
-        //Debug.Log(_maskEnemy.ToString());
         gameObject.layer = LayerMask.NameToLayer(_maskEnemy);
     }
     private void OnTriggerEnter(Collider collider)

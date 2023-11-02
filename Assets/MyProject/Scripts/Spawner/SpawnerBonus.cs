@@ -9,7 +9,6 @@ public class SpawnerBonus : SimpleSpawner
     [SerializeField] private bool _isOpen;
 
     [SerializeField] private ItemInPool Test;
-    // Start is called before the first frame update
     void Start()
     {
         _currentTime = _maxTimeCuldown;
