@@ -1,45 +1,117 @@
+using ShowMeleeWeapon;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShowHitBox : MonoBehaviour, IShowHitBox
+public class ShowHitBox : MonoBehaviour
 {
     [SerializeField] private DamageHitBox _hitBox;
     [SerializeField] private float _currentTime;
     [SerializeField] private float _cdBeforeShow;
     [SerializeField] private float _cdShow;
     [SerializeField] private float _cdAfterShow;
-    private Vector3 _localPositionBoxDefault;
+    //private Vector3 _localPositionBoxDefault;
     private bool _isShow = false;
+
+    private StateMachineMeleeWeapon _meleeWeaponMachine;
     private void Start()
     {
-        _localPositionBoxDefault = _hitBox.transform.localPosition;
-        HideBox();
+        _meleeWeaponMachine = new StateMachineMeleeWeapon(_hitBox, _cdBeforeShow, _cdShow, _cdAfterShow);
     }
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0) && !_isShow)                                 { _isShow = true; Debug.Log(_currentTime + " GetMouseButtonDown"); }
-        if (_isShow)                                                                { _currentTime += Time.deltaTime; Debug.Log(_currentTime + " _isShow == true"); }
-        if (!_hitBox.gameObject.activeSelf && _currentTime > _cdBeforeShow)         { ShowBox(); Debug.Log(_currentTime); Debug.Log(_currentTime + " ShowBox"); }
-        if (_currentTime > _cdShow && _hitBox.gameObject.activeSelf)                { HideBox(); Debug.Log(_currentTime); Debug.Log(_currentTime + " HideBox"); }
-        if (_currentTime > _cdAfterShow && _isShow)                                 { _isShow = false; _currentTime = 0; Debug.Log(_currentTime + " _isShow = false"); }
-
-    }
-
-    public virtual void ShowBox()
-    {
-        _hitBox.gameObject.SetActive(true);
-    }
-    public virtual void HideBox()
-    {
-        _hitBox.gameObject.SetActive(false);
+        _meleeWeaponMachine.UpdateMachine();
     }
 
 }
 
-public interface IShowHitBox
+
+namespace ShowMeleeWeapon
 {
-    public void ShowBox();
-    public void HideBox();
+    public class StateMachineMeleeWeapon : StateMachine
+    {
+        public DamageHitBox HitBox { get; private set; }
+
+        public StateMachineMeleeWeapon(DamageHitBox hitBox, float cdBeforeShow = 0.3f, float cdShow = 0.2f, float cdAfterShow = 0.2f)
+        {
+            HitBox = hitBox;
+            this.CreateMachine(
+                new List<State>()
+                {
+                    new StateSleep(),
+                    new StateBeforeshow(cdBeforeShow),
+                    new StateShow(cdShow),
+                    new StateAfterShow(cdAfterShow)
+                },
+                0);
+            foreach (var state in States) { state.CreateState(this); }
+            States[CurrentState].Enter();
+        }
+    }
+    public class StateSleep : State
+    {
+        public override void Enter() { ((StateMachineMeleeWeapon)Machine).HitBox.gameObject.SetActive(false); }
+        public override void Exit() { }
+        public override void UpdateState()
+        {
+            if (Input.GetMouseButtonDown(0)) { Machine.SwapState(1); }
+        }
+
+    }
+    public class StateBeforeshow : State
+    {
+        public float MaxCd;
+        public float CurrentTime;
+        public StateBeforeshow(float maxCd) { MaxCd = maxCd; CurrentTime = maxCd; }
+        public override void Enter()    { CurrentTime = MaxCd; }
+
+        public override void Exit()     {                      }
+
+        public override void UpdateState()
+        {
+            CurrentTime -= Time.deltaTime;
+            if(CurrentTime < 0 ) { Machine.SwapState(2); }
+        }
+    }
+
+    public class StateShow : State
+    {
+        float MaxCd;
+        float CurrentTime;
+        public StateShow(float maxCd) { MaxCd = maxCd; CurrentTime = maxCd; }
+        public override void Enter()
+        {
+            CurrentTime = MaxCd;
+            ((StateMachineMeleeWeapon)Machine).HitBox.gameObject.SetActive(true);
+        }
+
+        public override void Exit()
+        {
+            ((StateMachineMeleeWeapon)Machine).HitBox.gameObject.SetActive(false);
+        }
+
+        public override void UpdateState()
+        {
+            CurrentTime -= Time.deltaTime;
+            if (CurrentTime < 0) { Machine.SwapState(3); }
+        }
+    }
+    public class StateAfterShow : StateBeforeshow
+    {
+
+        public StateAfterShow(float maxCd) : base(maxCd) { }
+
+        public override void UpdateState()
+        {
+            CurrentTime -= Time.deltaTime;
+            if (CurrentTime < 0) { Machine.SwapState(0); }
+        }
+    }
+
+
+
+
+
 }
+
 

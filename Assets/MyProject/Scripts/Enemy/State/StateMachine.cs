@@ -3,39 +3,20 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public abstract class StateMachine : MonoBehaviour
+public abstract class StateMachine
 {
-    public GameObject OwnerStateMachine  => this.gameObject;
-    public StateSwitcher StateSwitcher { get; private set; }
-    public State CurrentState { get; private set; }
-    public static T CreateStateMachine<T, K>
-        (GameObject owner,
-        List<State> states, 
-        int indexCurrentState) 
-        where T : StateMachine 
-        where K : StateSwitcher, new()
+    public List<State> States { get; private set; } = new List<State>();
+    public int CurrentState;
+
+    public void CreateMachine(List<State> states, int indexCurrentState) { States = states; CurrentState = indexCurrentState; }
+
+    public void UpdateMachine()
     {
-        var newStateMachine = owner.AddComponent<T>();
-        var switcher = new K();
-        switcher.CreateStateSwitcher(newStateMachine, states, indexCurrentState);
-        newStateMachine.StateSwitcher = switcher;//CurrentState задаю там
-        
-        return newStateMachine;
-    }
-    protected abstract void Update();
-   
-    public void SetState(State newState) 
-    {
-        CurrentState = newState;
+        States[CurrentState].UpdateState();
     }
 
-
-
-
+    public void SwapState(int nextState) { States[CurrentState].Exit(); Debug.Log("swap to " + nextState); CurrentState = nextState; States[CurrentState].Enter(); }
 
 }
 
 
-public interface IStateMachine
-{
-}

@@ -3,27 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public abstract class State : IState
+public abstract class State
 {
-    public StateSwitcher Switcher        { get; private set; }
-    public UnityEvent<State> Ev_EndState { get; private set; } = new UnityEvent<State>();
-    public void CreateState(StateSwitcher switcher)
-    {
-        Switcher = switcher;
-    }
+    public StateMachine Machine;
+    public void CreateState(StateMachine machine) { Machine = machine; }
     public abstract void UpdateState();
-    
-    public void EnterState()
-    {
-        Ev_EndState.AddListener(Switcher.EndState);
-    }
-    public void ExitState()
-    {
-        Ev_EndState.RemoveAllListeners();
-    }
+    public abstract void Enter();
+    public abstract void Exit();
+
 }
 
-public interface IState
-{
-   
-}
