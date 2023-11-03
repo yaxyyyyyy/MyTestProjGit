@@ -7,6 +7,7 @@ public class ItemInPool : MonoBehaviour,IItemInPool
 {
 
     public UnityEvent Ev_EntryToPool;
+    public UnityEvent Ev_ExitFromPool;
     public void InstantinatePoolObj()
     {
         //при первом заполнении пула
@@ -24,9 +25,7 @@ public class ItemInPool : MonoBehaviour,IItemInPool
     {
         //возвращение в пул
         gameObject.transform.position = Vector3.zero;
-        Debug.Log("1");
         gameObject.SetActive(false);
-        Debug.Log("2");
         Ev_EntryToPool?.Invoke();
         Ev_EntryToPool.RemoveAllListeners();
     }
@@ -35,6 +34,8 @@ public class ItemInPool : MonoBehaviour,IItemInPool
     public void ExitFromPool()
     {
         //вместо спавна обьекта
+        Ev_ExitFromPool?.Invoke();
+        Ev_ExitFromPool.RemoveAllListeners();
         gameObject.SetActive(true);
     }
     public void ExitFromPool(Vector3 coordSpawn)

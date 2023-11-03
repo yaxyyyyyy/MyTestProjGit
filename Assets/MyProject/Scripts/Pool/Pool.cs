@@ -53,7 +53,6 @@ public class Pool : MonoBehaviour, IPool
     public void TestBtnGetPoolObj()
     {
         ((ItemInPool)GetItemInPool()).ExitFromPool(Vector3.up);
-        //GetPoolObj().ExitFromPool();
     }
 }
 
@@ -71,10 +70,5 @@ public interface IPool
         CreatePool(0);
     }
 
-    //public void TestBtnGetPoolObj()
-    //{
-    //    //GetPoolObj().ExitFromPool(Vector3.up);
-    //    GetPoolObj().ExitFromPool();
-    //}
 }
 

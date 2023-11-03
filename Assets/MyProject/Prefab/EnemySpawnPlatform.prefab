@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pool: {fileID: 2744850007300969512}
+  _player: {fileID: 0}
   _isVisible: 0
 --- !u!114 &2744850007300969512
 MonoBehaviour:

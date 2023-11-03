@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _size: 1
-  _prefab: {fileID: 2058499926935041634, guid: 516b6e3c4c59a714f9458e73788e9f85, type: 3}
+  _prefab: {fileID: 3033285688335743767, guid: 516b6e3c4c59a714f9458e73788e9f85, type: 3}
   _container: {fileID: 867313033170861392}
 --- !u!1001 &278428686868235048
 PrefabInstance:

@@ -2,13 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BonusItem : ItemInPool
+public abstract class BonusItem : ItemInPool
 {
     [SerializeField] private Rigidbody _rBody;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
         this.EntryToPool();
-        Debug.Log("bonus");
+        GetBonus(other.gameObject);
     }
+
+    public abstract void GetBonus(GameObject targetBonus);
+    //{
+    //    Debug.Log("bonus");
+    //}
 }
