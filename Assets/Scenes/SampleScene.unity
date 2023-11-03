@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 15
-  _maskEnemy: Enemy
+  _maskEnemy: PlayerWeapon
 --- !u!1 &94741317
 GameObject:
   m_ObjectHideFlags: 0
@@ -986,6 +986,8 @@ GameObject:
   - component: {fileID: 596223159}
   - component: {fileID: 596223158}
   - component: {fileID: 596223157}
+  - component: {fileID: 596223160}
+  - component: {fileID: 596223161}
   m_Layer: 7
   m_Name: PlayerObj
   m_TagString: Untagged
@@ -1081,6 +1083,49 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 596223155}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &596223160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596223155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8051d2be0abe9f4abfedc9a1750e4e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 15
+  _maxHealth: 30
+  Ev_Dead:
+    m_PersistentCalls:
+      m_Calls: []
+  UIRestartMenu: {fileID: 1133904377}
+--- !u!114 &596223161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596223155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c9ac4ebf4460ca4a86ffe55a4e47adc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 7
+  OrientationCamera: {fileID: 963194229}
+  _rBody: {fileID: 1999694295}
+  _jumpKey: 32
+  _jumpForce: 12
+  _jumpCooldown: 0.25
+  _airMultiplier: 0.4
+  _isReadyToJump: 1
+  PlayerHeight: 2
+  GroundMask:
+    serializedVersion: 2
+    m_Bits: 64
+  GroundDrag: 5
 --- !u!1001 &600356074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2474,9 +2519,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1999694296}
   - component: {fileID: 1999694295}
-  - component: {fileID: 1999694297}
   - component: {fileID: 1999694298}
-  - component: {fileID: 1999694299}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -2529,31 +2572,6 @@ Transform:
   - {fileID: 1188000962}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1999694297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1999694294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c9ac4ebf4460ca4a86ffe55a4e47adc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _moveSpeed: 7
-  OrientationCamera: {fileID: 963194229}
-  _rBody: {fileID: 1999694295}
-  _jumpKey: 32
-  _jumpForce: 12
-  _jumpCooldown: 0.25
-  _airMultiplier: 0.4
-  _isReadyToJump: 1
-  PlayerHeight: 2
-  GroundMask:
-    serializedVersion: 2
-    m_Bits: 64
-  GroundDrag: 5
 --- !u!114 &1999694298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2571,24 +2589,6 @@ MonoBehaviour:
   _cdBeforeShow: 0.3
   _cdShow: 0.5
   _cdAfterShow: 0.7
---- !u!114 &1999694299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1999694294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8051d2be0abe9f4abfedc9a1750e4e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: 15
-  _maxHealth: 30
-  Ev_Dead:
-    m_PersistentCalls:
-      m_Calls: []
-  UIRestartMenu: {fileID: 1133904377}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

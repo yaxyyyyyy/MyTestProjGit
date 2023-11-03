@@ -6,10 +6,10 @@ public abstract class BonusItem : ItemInPool
 {
     [SerializeField] private Rigidbody _rBody;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
         this.EntryToPool();
-        GetBonus(collision.gameObject);
+        GetBonus(other.gameObject);
     }
 
     public abstract void GetBonus(GameObject targetBonus);
