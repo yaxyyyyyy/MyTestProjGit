@@ -11,8 +11,8 @@ public abstract class Health : MonoBehaviour
     public UnityEvent Ev_Dead;
     public virtual void AddDamage(int damage)
     {
-
-        Debug.Log("AddDamage [dmg=" + damage + "/cur=" + _health + "/max=" + _maxHealth + "] from " + gameObject.name);
+        //CECK DEBUG LOG
+        //Debug.Log("AddDamage [dmg=" + damage + "/cur=" + _health + "/max=" + _maxHealth + "] from " + gameObject.name);
         _health = Mathf.Min(_maxHealth, _health - damage);
         if (_health <= 0)
         {

@@ -14,10 +14,12 @@ public class HealthPlayer : Health
     private void GetWindowRestart()
     {
         UIRestartMenu.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void GetRestart()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         _health = _maxHealth;
     }
 }

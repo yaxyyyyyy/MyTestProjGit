@@ -10,12 +10,12 @@ public abstract class StateMachine
 
     public void CreateMachine(List<State> states, int indexCurrentState) { States = states; CurrentState = indexCurrentState; }
 
-    public void UpdateMachine()
+    public virtual void UpdateMachine()
     {
         States[CurrentState].UpdateState();
     }
 
-    public void SwapState(int nextState) { States[CurrentState].Exit(); /*Debug.Log("swap to " + nextState);*/ CurrentState = nextState; States[CurrentState].Enter(); }
+    public virtual void SwapState(int nextState) { States[CurrentState].Exit(); /*Debug.Log("swap to " + nextState);*/ CurrentState = nextState; States[CurrentState].Enter(); }
 
 }
 
