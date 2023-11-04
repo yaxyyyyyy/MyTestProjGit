@@ -21,9 +21,10 @@ public class UIPauseMenu : MonoBehaviour
     {
         if(currentPlayerHP <= 0)
         {
-            Menu.SetActive(true);
+            //Menu.SetActive(true);
             _isContinue = false;
             ButtonContinue.SetActive(_isContinue);
+            OpenPauseMenu();
         }
         else
         {
@@ -46,6 +47,14 @@ public class UIPauseMenu : MonoBehaviour
         Time.timeScale = 1;
         Menu.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
+        //TODO при клике по кнопке игрок бьёт роужием(после выхода из паузы)
+    }
+
+    public void ExitScene()
+    {
+        Time.timeScale = 1;
+        Menu.SetActive(false);
+        SceneManager.LoadScene(0);
         //TODO при клике по кнопке игрок бьёт роужием(после выхода из паузы)
     }
 }
