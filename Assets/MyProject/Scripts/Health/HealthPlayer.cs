@@ -8,7 +8,7 @@ public class HealthPlayer : Health
     private void Start()
     {
         UIRestartMenu.SetActive(false);
-        Ev_Dead.AddListener(GetWindowRestart);
+        Ev_Dead.AddListener(GetMainWindow);
     }
 
     private void GetWindowRestart()
