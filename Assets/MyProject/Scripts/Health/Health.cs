@@ -7,6 +7,8 @@ public abstract class Health : MonoBehaviour
 {
     [SerializeField] protected int _health = 15;
     [SerializeField] protected int _maxHealth = 30;
+    public int CurrentHealth => _health;
+    public int MaxHealth => _maxHealth;
 
     public UnityEvent Ev_Dead;
     public virtual void AddDamage(int damage)

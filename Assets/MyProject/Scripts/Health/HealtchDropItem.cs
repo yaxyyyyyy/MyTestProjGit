@@ -10,7 +10,7 @@ public class HealtchDropItem : MonoBehaviour
     void Start()
     {
         if(_health == null) { _health = gameObject.GetComponent<HealthEnemy>(); }
-        _health.Ev_SpawnItem.AddListener(Spawn);
+        _health.Ev_Dead.AddListener(Spawn);
     }
 
     public void Spawn()

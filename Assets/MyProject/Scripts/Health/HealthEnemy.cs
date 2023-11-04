@@ -7,7 +7,7 @@ public class HealthEnemy : Health
 {
     [SerializeField] private ItemInPool _itemInPool;
 
-    public UnityEvent Ev_SpawnItem;
+    //public UnityEvent Ev_SpawnItem;
 
     private void Start()
     {
@@ -16,7 +16,7 @@ public class HealthEnemy : Health
 
     public override void AddDamage(int damage)
     {
-        Ev_SpawnItem?.Invoke();
+        //Ev_SpawnItem?.Invoke();
         base.AddDamage(damage);
     }
 
