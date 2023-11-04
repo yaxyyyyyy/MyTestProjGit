@@ -19,7 +19,7 @@ public class Pool : MonoBehaviour, IPool
         for (int i = 0; i < _size; i++) { CreateItemInPool(i); }
     }
 
-    public IItemInPool CreateItemInPool(int numberName)
+    public virtual IItemInPool CreateItemInPool(int numberName)
     {
         _container = _container == null ? gameObject.transform : _container;
 
@@ -31,7 +31,7 @@ public class Pool : MonoBehaviour, IPool
         return answer;
     }
 
-    public IItemInPool GetItemInPool()
+    public virtual IItemInPool GetItemInPool()
     {
         var answer = _pool.Where(x => !x.GetGameObject().activeSelf).FirstOrDefault();
         if (answer == null)

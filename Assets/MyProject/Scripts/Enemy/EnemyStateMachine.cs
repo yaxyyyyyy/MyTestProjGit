@@ -12,7 +12,14 @@ namespace ShowEnemyMeleeWeapon
     {
         public EnemyMovementAgent EnemyAgent;
         public List<StateTimer> StateTimers;//замена List<State> States;
-        public EnemyStateMachine(EnemyMovementAgent agent, UnityEvent<GameObject> ev_onTriggerEnter, DamageHitBox weaponHitBox, Transform myTransform)
+        public EnemyStateMachine( 
+            EnemyMovementAgent agent, 
+            UnityEvent<GameObject> ev_onTriggerEnter, 
+            DamageHitBox weaponHitBox, 
+            Transform myTransform,
+
+            float beforeShowAttak = 0.7f, float showAttak = 0.2f, float afterAttak = 3f
+            )
         {
             EnemyAgent = agent;
 
@@ -30,9 +37,9 @@ namespace ShowEnemyMeleeWeapon
 
             weaponHitBox.gameObject.SetActive(false);
             ((StateSearchTarget)StateTimers[0]).CreateStateTimer(this, ev_onTriggerEnter);
-            StateTimers[1].CreateStateTimer(this, 0.9f,2);
-            ((StateShowWeapon)StateTimers[2]).CreateStateTimer(this,0.2f, weaponHitBox);
-            ((StateAfterAtak)StateTimers[3]).CreateStateTimer(this, 3f, myTransform);
+            StateTimers[1].CreateStateTimer(this, beforeShowAttak, 2);
+            ((StateShowWeapon)StateTimers[2]).CreateStateTimer(this, showAttak, weaponHitBox);
+            ((StateAfterAtak)StateTimers[3]).CreateStateTimer(this, afterAttak, myTransform);
             //foreach (var state in States) { state.CreateState(this); }
             StateTimers[0].Enter();
         }
