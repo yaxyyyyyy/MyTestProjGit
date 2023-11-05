@@ -16,8 +16,8 @@ public class HealthEnemy : Health
     public override void AddDamage(int damage)
     {
         //Ev_SpawnItem?.Invoke();
+        Ev_changeHP?.Invoke(CurrentHealth - damage);
         base.AddDamage(damage);
-        Ev_changeHP?.Invoke(CurrentHealth);
     }
 
     public void ResetHealthValue() { _health = _maxHealth; Ev_changeHP?.Invoke(CurrentHealth); }

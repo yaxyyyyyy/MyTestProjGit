@@ -24,8 +24,8 @@ public class UIHealthPlayer : MonoBehaviour
     {
 
         _sliderHP.maxValue = _healthPlayer.MaxHealth;
-        _sliderHP.value = _healthPlayer.CurrentHealth;
+        _sliderHP.value = newCurrentHP;
         _textPrintMaxHP.text = "/  " + _healthPlayer.MaxHealth.ToString();
-        _textPrintCurrentHP.text = _healthPlayer.CurrentHealth.ToString();
+        _textPrintCurrentHP.text = newCurrentHP.ToString();
     }
 }

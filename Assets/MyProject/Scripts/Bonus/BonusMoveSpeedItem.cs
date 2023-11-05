@@ -12,7 +12,6 @@ public class BonusMoveSpeedItem : BonusItem
     }
     public override void GetBonus(GameObject targetBonus)
     {
-        Debug.Log(targetBonus.name);
         var move = targetBonus.GetComponent<IMove>();
         if (move != null)
         {

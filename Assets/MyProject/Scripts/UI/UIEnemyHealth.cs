@@ -24,8 +24,8 @@ public class UIEnemyHealth : MonoBehaviour
     {
 
         _helthSlider.maxValue = _healthEnemy.MaxHealth;
-        _helthSlider.value = _healthEnemy.CurrentHealth;
-        _textPrintCurrentHP.text = _healthEnemy.CurrentHealth.ToString();
+        _helthSlider.value = newCurrentHP;
+        _textPrintCurrentHP.text = newCurrentHP.ToString();
     }
 
 

@@ -13,12 +13,12 @@ public class HealthPlayer : Health
         //Debug.Log("AddDamage [dmg=" + damage + "/cur=" + _health + "/max=" + _maxHealth + "] from " + gameObject.name);
         _health = Mathf.Min(_maxHealth, _health - damage);
 
+        Ev_changeHP?.Invoke(_health);
         if (_health <= 0)
         {
             Ev_Dead?.Invoke();
             Ev_Dead.RemoveAllListeners();
             //_health = _maxHealth; // - גûחמגועסÿ סמבûעטול
         }
-        Ev_changeHP?.Invoke(_health);
     }
 }
