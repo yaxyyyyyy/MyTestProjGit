@@ -10,15 +10,15 @@ public class HealtchDropItem : MonoBehaviour
     void Start()
     {
         if(_health == null) { _health = gameObject.GetComponent<HealthEnemy>(); }
-        _health.Ev_SpawnItem.AddListener(Spawn);
+        _health.Ev_Dead.AddListener(Spawn);
     }
 
     public void Spawn()
     {
         if (Random.Range(0, 100) <= percentSpawn)
         {
-            SpawnerAfterEnemyDead.Instance.SpawnItem(gameObject.transform);
-            Debug.Log(gameObject.transform.position);
+            var item = SpawnerAfterEnemyDead.Instance.SpawnItem(gameObject.transform);
+            //Debug.Log(gameObject.transform.position);
         }
     }
 

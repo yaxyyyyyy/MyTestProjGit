@@ -1,23 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class HealthPlayer : Health
 {
-    [SerializeField] protected GameObject UIRestartMenu;
-    private void Start()
+    public UnityEvent<int> Ev_changeHP = new UnityEvent<int>();
+    public override void AddDamage(int damage)
     {
-        UIRestartMenu.SetActive(false);
-        Ev_Dead.AddListener(GetWindowRestart);
-    }
+        //CECK DEBUG LOG
+        //Debug.Log("AddDamage [dmg=" + damage + "/cur=" + _health + "/max=" + _maxHealth + "] from " + gameObject.name);
+        _health = Mathf.Min(_maxHealth, _health - damage);
 
-    private void GetWindowRestart()
-    {
-        UIRestartMenu.SetActive(true);
-    }
-
-    public void GetRestart()
-    {
-        _health = _maxHealth;
+        Ev_changeHP?.Invoke(_health);
+        if (_health <= 0)
+        {
+            Ev_Dead?.Invoke();
+            Ev_Dead.RemoveAllListeners();
+            //_health = _maxHealth; // - גûחמגועסÿ סמבûעטול
+        }
     }
 }

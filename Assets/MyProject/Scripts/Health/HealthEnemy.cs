@@ -6,8 +6,7 @@ using UnityEngine.Events;
 public class HealthEnemy : Health
 {
     [SerializeField] private ItemInPool _itemInPool;
-
-    public UnityEvent Ev_SpawnItem;
+    public UnityEvent<int> Ev_changeHP;
 
     private void Start()
     {
@@ -16,11 +15,12 @@ public class HealthEnemy : Health
 
     public override void AddDamage(int damage)
     {
-        Ev_SpawnItem?.Invoke();
+        //Ev_SpawnItem?.Invoke();
+        Ev_changeHP?.Invoke(CurrentHealth - damage);
         base.AddDamage(damage);
     }
 
-    public void ResetHealthValue() { _health = _maxHealth; }
+    public void ResetHealthValue() { _health = _maxHealth; Ev_changeHP?.Invoke(CurrentHealth); }
 
     private void OnEnable()
     {

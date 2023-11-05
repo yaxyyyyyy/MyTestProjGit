@@ -1,7 +1,9 @@
+using MyInputActions;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour, IMove
 {
@@ -31,19 +33,28 @@ public class PlayerMovement : MonoBehaviour, IMove
     [SerializeField] private float GroundDrag = 5f;
     private bool _isGrounded;
 
+    //[Header("NewInput")]
+    //[Inject] private MyInputActions.MyInputActions _actions;
+
+
+    //[Header("new Input Check")]
+    //[SerializeField] private MyInputActions.MyInputActions _inputActions;
     private void Start()
     {
         _rBody.freezeRotation = true;
+        //_inputActions.Player.Jump.started
     }
-
+    //private void OnEnable()    {        _actions.Player.Jump.performed += OnJumpNewInput;    }
+    //private void OnDisable()    {        _actions.Player.Jump.performed -= OnJumpNewInput;    }
     private void Update()
     {
         SetIsGroundedUpd();
         SetInputUpd();
-        SetInputJumpUpd();
+        //SetInputJumpUpd();
         SetPlayerControlUpd();
         SetRBodyDragUpd();
     }
+
     private void SetIsGroundedUpd()
     {
         _isGrounded = Physics.Raycast(transform.position, Vector3.down, PlayerHeight * 0.5f + 0.2f, GroundMask);
@@ -73,6 +84,31 @@ public class PlayerMovement : MonoBehaviour, IMove
         }
     }
 
+
+    // לועמה גûחûגאועסÿ םמגמי input-system
+    //public void OnJumpNewInput(InputAction.CallbackContext context)
+    //{
+    //    //Debug.Log("OnJump");
+    //    if (_isReadyToJump && _isGrounded)
+    //    {
+    //        _isReadyToJump = false;
+    //        GetJump();
+
+    //        Invoke(nameof(ResetJump), _jumpCooldown);
+    //    }
+    //}
+    public void OnJump()
+    {
+        //Debug.Log("OnJump");
+        if (_isReadyToJump && _isGrounded)
+        {
+            _isReadyToJump = false;
+            GetJump();
+
+            Invoke(nameof(ResetJump), _jumpCooldown);
+        }
+    }
+
     private void GetJump()
     {
         _rBody.velocity = new Vector3(_rBody.velocity.x,0f,_rBody.velocity.z);
@@ -82,6 +118,9 @@ public class PlayerMovement : MonoBehaviour, IMove
     {
         _isReadyToJump = true;
     }
+
+    
+
     private void FixedUpdate()
     {
         MovePlayerFixedUpd();

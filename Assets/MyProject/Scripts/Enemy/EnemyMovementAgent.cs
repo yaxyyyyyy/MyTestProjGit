@@ -7,16 +7,24 @@ public class EnemyMovementAgent : MonoBehaviour, IMove
 {
     [SerializeField] private Transform _playerTransform;
     [SerializeField] private NavMeshAgent _agent;
+    public Transform PlayerTransform => _playerTransform;
+    public NavMeshAgent Agent => _agent;
+
+    //TODO переделать в машину состояний
+    public bool IsWatchPlayerPositionEveryFrame = true;
+    public Vector3 TargetVector;
 
     public void CreateEnemyMovementAgent(Transform target)
     {
         _playerTransform = target;
+        TargetVector = gameObject.transform.position;
     }
 
 
     void Update()
     {
-        _agent.SetDestination(_playerTransform.position);
+        if (IsWatchPlayerPositionEveryFrame) { _agent.SetDestination(_playerTransform.position); }
+        else { _agent.SetDestination(TargetVector); }
     }
 
     public void SetMoveSpeed(float speed)

@@ -15,14 +15,14 @@ public class BonusMoveSpeedItem : BonusItem
         var move = targetBonus.GetComponent<IMove>();
         if (move != null)
         {
-            var bonusSpeedOnPlayer = gameObject.GetComponent<BonusSpeedOnPlayer>();
+            var bonusSpeedOnPlayer = targetBonus.GetComponent<BonusSpeedOnPlayer>();
             if (bonusSpeedOnPlayer != null)
             {
                 bonusSpeedOnPlayer.CreateBonusOnPlayer(move, _newSpeed, _timeBonus);
             }
             else
             {
-                bonusSpeedOnPlayer = gameObject.AddComponent<BonusSpeedOnPlayer>();
+                bonusSpeedOnPlayer = targetBonus.AddComponent<BonusSpeedOnPlayer>();
                 bonusSpeedOnPlayer.CreateBonusOnPlayer(move, _newSpeed, _timeBonus);
             }
 
