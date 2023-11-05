@@ -7,6 +7,13 @@ using UnityEngine.InputSystem;
 public class InvokeAttakByInput : MonoBehaviour
 {
     [SerializeField] private RayCastAttak _rayCastAttak;
+    [SerializeField] private ProjectileAttak _projectileAttak;
+    [SerializeField] private ProjectileAttak _projectileAttakExplosive;
+    [SerializeField] private GameObject _weaponGun;
+
+    [SerializeField] private UIWeaponPlayer _weaponPlayer;
+
+    private IAttaker _currentWeapon;
 
 
     //[Inject]private MyInputActions.MyInputActions _actions;
@@ -24,15 +31,42 @@ public class InvokeAttakByInput : MonoBehaviour
     //{
     //    _actions.Player.Fire1.performed -= PerfomAttak;
     //}
-
+    private void Start()
+    {
+        _currentWeapon = _rayCastAttak;
+    }
+    private void Update()
+    {
+        
+    }
     private void OnFire1()
     {
-
-        _rayCastAttak.PerfomAttak();
+        _currentWeapon.PerfomAttak();
+        //_rayCastAttak.PerfomAttak();
+    }
+    private void OnSelectWeapon1()
+    {
+        _currentWeapon = _rayCastAttak;
+        _weaponGun.SetActive(true);
+        _weaponPlayer.SetImage(0);
+    }
+    private void OnSelectWeapon2()
+    {
+        _currentWeapon = _projectileAttak;
+        _weaponGun.SetActive(false);
+        _weaponPlayer.SetImage(1);
     }
 
-    //private void PerfomAttak(InputAction.CallbackContext callbackContext)
-    //{
-    //    _rayCastAttak.PerfomAttak();
-    //}
+    private void OnSelectWeapon3()
+    {
+        _currentWeapon = _projectileAttakExplosive;
+        _weaponGun.SetActive(false);
+        _weaponPlayer.SetImage(2);
+    }
 }
+
+public interface IAttaker
+{
+    public void PerfomAttak();
+}
+

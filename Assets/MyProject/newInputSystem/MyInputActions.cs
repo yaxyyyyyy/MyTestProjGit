@@ -48,9 +48,27 @@ namespace MyInputActions
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Fire2"",
+                    ""name"": ""SelectWeapon1"",
                     ""type"": ""Button"",
                     ""id"": ""f3db5d47-e965-4ba4-a2bc-2e1a5d9f8d6e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectWeapon2"",
+                    ""type"": ""Button"",
+                    ""id"": ""d7b5f787-fd98-4b40-960b-a6d019d5d7ce"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectWeapon3"",
+                    ""type"": ""Button"",
+                    ""id"": ""84bb972e-4551-4469-8b38-cab237ef4944"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -94,11 +112,33 @@ namespace MyInputActions
                 {
                     ""name"": """",
                     ""id"": ""5f0382c6-36b2-4f45-ab5c-ff7ab81dc6ef"",
-                    ""path"": ""<Keyboard>/f"",
+                    ""path"": ""<Keyboard>/1"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Fire2"",
+                    ""action"": ""SelectWeapon1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7af45559-9aa3-4a95-b8ef-d25819af493a"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectWeapon2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ba46d857-3fde-4ade-a344-7ec591eea92f"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectWeapon3"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -111,7 +151,9 @@ namespace MyInputActions
             m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
             m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
             m_Player_Fire1 = m_Player.FindAction("Fire1", throwIfNotFound: true);
-            m_Player_Fire2 = m_Player.FindAction("Fire2", throwIfNotFound: true);
+            m_Player_SelectWeapon1 = m_Player.FindAction("SelectWeapon1", throwIfNotFound: true);
+            m_Player_SelectWeapon2 = m_Player.FindAction("SelectWeapon2", throwIfNotFound: true);
+            m_Player_SelectWeapon3 = m_Player.FindAction("SelectWeapon3", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -175,14 +217,18 @@ namespace MyInputActions
         private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
         private readonly InputAction m_Player_Jump;
         private readonly InputAction m_Player_Fire1;
-        private readonly InputAction m_Player_Fire2;
+        private readonly InputAction m_Player_SelectWeapon1;
+        private readonly InputAction m_Player_SelectWeapon2;
+        private readonly InputAction m_Player_SelectWeapon3;
         public struct PlayerActions
         {
             private @MyInputActions m_Wrapper;
             public PlayerActions(@MyInputActions wrapper) { m_Wrapper = wrapper; }
             public InputAction @Jump => m_Wrapper.m_Player_Jump;
             public InputAction @Fire1 => m_Wrapper.m_Player_Fire1;
-            public InputAction @Fire2 => m_Wrapper.m_Player_Fire2;
+            public InputAction @SelectWeapon1 => m_Wrapper.m_Player_SelectWeapon1;
+            public InputAction @SelectWeapon2 => m_Wrapper.m_Player_SelectWeapon2;
+            public InputAction @SelectWeapon3 => m_Wrapper.m_Player_SelectWeapon3;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -198,9 +244,15 @@ namespace MyInputActions
                 @Fire1.started += instance.OnFire1;
                 @Fire1.performed += instance.OnFire1;
                 @Fire1.canceled += instance.OnFire1;
-                @Fire2.started += instance.OnFire2;
-                @Fire2.performed += instance.OnFire2;
-                @Fire2.canceled += instance.OnFire2;
+                @SelectWeapon1.started += instance.OnSelectWeapon1;
+                @SelectWeapon1.performed += instance.OnSelectWeapon1;
+                @SelectWeapon1.canceled += instance.OnSelectWeapon1;
+                @SelectWeapon2.started += instance.OnSelectWeapon2;
+                @SelectWeapon2.performed += instance.OnSelectWeapon2;
+                @SelectWeapon2.canceled += instance.OnSelectWeapon2;
+                @SelectWeapon3.started += instance.OnSelectWeapon3;
+                @SelectWeapon3.performed += instance.OnSelectWeapon3;
+                @SelectWeapon3.canceled += instance.OnSelectWeapon3;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -211,9 +263,15 @@ namespace MyInputActions
                 @Fire1.started -= instance.OnFire1;
                 @Fire1.performed -= instance.OnFire1;
                 @Fire1.canceled -= instance.OnFire1;
-                @Fire2.started -= instance.OnFire2;
-                @Fire2.performed -= instance.OnFire2;
-                @Fire2.canceled -= instance.OnFire2;
+                @SelectWeapon1.started -= instance.OnSelectWeapon1;
+                @SelectWeapon1.performed -= instance.OnSelectWeapon1;
+                @SelectWeapon1.canceled -= instance.OnSelectWeapon1;
+                @SelectWeapon2.started -= instance.OnSelectWeapon2;
+                @SelectWeapon2.performed -= instance.OnSelectWeapon2;
+                @SelectWeapon2.canceled -= instance.OnSelectWeapon2;
+                @SelectWeapon3.started -= instance.OnSelectWeapon3;
+                @SelectWeapon3.performed -= instance.OnSelectWeapon3;
+                @SelectWeapon3.canceled -= instance.OnSelectWeapon3;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -235,7 +293,9 @@ namespace MyInputActions
         {
             void OnJump(InputAction.CallbackContext context);
             void OnFire1(InputAction.CallbackContext context);
-            void OnFire2(InputAction.CallbackContext context);
+            void OnSelectWeapon1(InputAction.CallbackContext context);
+            void OnSelectWeapon2(InputAction.CallbackContext context);
+            void OnSelectWeapon3(InputAction.CallbackContext context);
         }
     }
 }

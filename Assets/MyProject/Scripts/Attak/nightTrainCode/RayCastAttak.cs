@@ -161,7 +161,7 @@ using UnityEngine;
 //}
 
 
-public class RayCastAttak : MonoBehaviour
+public class RayCastAttak : MonoBehaviour, IAttaker
 {
 
     [Header("Damage")]

@@ -1,18 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIWeaponPlayer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] Sprite[] _weaponSprite;
+    [SerializeField] Image _weaponImage;
+    public void SetImage(int numberSprite)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _weaponImage.sprite = _weaponSprite[numberSprite];
     }
 }

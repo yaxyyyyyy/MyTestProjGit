@@ -17,6 +17,7 @@ public class UIPauseMenu : MonoBehaviour
         _isContinue = true;
     }
 
+
     private void SetCanContinueButtonPress(int currentPlayerHP)
     {
         if(currentPlayerHP <= 0)
