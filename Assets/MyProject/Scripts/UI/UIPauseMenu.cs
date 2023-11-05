@@ -9,6 +9,8 @@ public class UIPauseMenu : MonoBehaviour
     [SerializeField] protected GameObject Menu;
     [SerializeField] protected GameObject ButtonContinue;
     [SerializeField] protected bool _isContinue;
+
+    [SerializeField] protected InvokeAttakByInput _player;
     private void Start()
     {
         //Time.timeScale = 1;
@@ -16,6 +18,8 @@ public class UIPauseMenu : MonoBehaviour
         if(_healthPlayer != null)
         _healthPlayer.Ev_changeHP.AddListener(SetCanContinueButtonPress);
         _isContinue = true;
+        if(_player != null)
+        _player.SetSleep(false);
     }
 
 
@@ -44,6 +48,8 @@ public class UIPauseMenu : MonoBehaviour
         ButtonContinue.SetActive(_isContinue);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        if (_player != null)
+            _player.SetSleep(true);
     }
     public void ClosePauseMenu()
     {
@@ -52,7 +58,8 @@ public class UIPauseMenu : MonoBehaviour
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        //TODO при клике по кнопке игрок бьёт роужием(после выхода из паузы)
+        if (_player != null)
+            _player.SetSleep(false);
     }
 
     public void ExitScene()

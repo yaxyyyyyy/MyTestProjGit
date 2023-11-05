@@ -945,6 +945,7 @@ MonoBehaviour:
   Menu: {fileID: 1863211065}
   ButtonContinue: {fileID: 1863211065}
   _isContinue: 0
+  _player: {fileID: 1863211065}
 --- !u!1 &1863211065
 GameObject:
   m_ObjectHideFlags: 0

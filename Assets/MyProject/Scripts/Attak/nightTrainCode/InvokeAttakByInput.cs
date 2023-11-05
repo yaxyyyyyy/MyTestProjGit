@@ -15,6 +15,12 @@ public class InvokeAttakByInput : MonoBehaviour
 
     private IAttaker _currentWeapon;
 
+    private bool _isSleep;
+
+    public void SetSleep(bool sleep)
+    {
+        _isSleep = sleep;
+    }
 
     //[Inject]private MyInputActions.MyInputActions _actions;
 
@@ -41,17 +47,22 @@ public class InvokeAttakByInput : MonoBehaviour
     }
     private void OnFire1()
     {
+        if (_isSleep) return;
+
         _currentWeapon.PerfomAttak();
         //_rayCastAttak.PerfomAttak();
     }
     private void OnSelectWeapon1()
     {
+
+        if (_isSleep) return;
         _currentWeapon = _rayCastAttak;
         _weaponGun.SetActive(true);
         _weaponPlayer.SetImage(0);
     }
     private void OnSelectWeapon2()
     {
+        if (_isSleep) return;
         _currentWeapon = _projectileAttak;
         _weaponGun.SetActive(false);
         _weaponPlayer.SetImage(1);
@@ -59,6 +70,7 @@ public class InvokeAttakByInput : MonoBehaviour
 
     private void OnSelectWeapon3()
     {
+        if (_isSleep) return;
         _currentWeapon = _projectileAttakExplosive;
         _weaponGun.SetActive(false);
         _weaponPlayer.SetImage(2);
