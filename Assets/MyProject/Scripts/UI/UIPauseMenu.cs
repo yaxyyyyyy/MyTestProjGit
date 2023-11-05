@@ -13,6 +13,7 @@ public class UIPauseMenu : MonoBehaviour
     {
         //Time.timeScale = 1;
         Menu.SetActive(false);
+        if(_healthPlayer != null)
         _healthPlayer.Ev_changeHP.AddListener(SetCanContinueButtonPress);
         _isContinue = true;
     }
@@ -34,19 +35,22 @@ public class UIPauseMenu : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) { OpenPauseMenu(); }
+        if (Input.GetKeyDown(KeyCode.Escape)) { if (Menu.activeSelf) { ClosePauseMenu(); } else { OpenPauseMenu(); } }
     }
     public void OpenPauseMenu()
     {
         Time.timeScale = 0;
         Menu.SetActive(true);
         ButtonContinue.SetActive(_isContinue);
+        Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
     public void ClosePauseMenu()
     {
         Time.timeScale = 1;
         Menu.SetActive(false);
+
+        Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         //TODO при клике по кнопке игрок бьёт роужием(после выхода из паузы)
     }
@@ -57,5 +61,9 @@ public class UIPauseMenu : MonoBehaviour
         Menu.SetActive(false);
         SceneManager.LoadScene(0);
         //TODO при клике по кнопке игрок бьёт роужием(после выхода из паузы)
+    }
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }
