@@ -15,7 +15,7 @@ public class SpawnerEnemy : SimpleSpawner
     void OnBecameInvisible()
     {
         _isVisible = false;
-        //камера просмотра сцены (в редкатировании) также учитывается
+        //камера просмотра сцены (в редактировании) также учитывается
         //Debug.Log("меня не видно");
     }
     public void SetPlayer(Transform player)
