@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour, IMove
     //- связь полей через общую ссылку на приравненные Transform
     //orientation у него конечно ещё страннее
     [Header("Movement")]
-    [SerializeField] private float _moveSpeed = 7f;
+    [SerializeField] private float _moveSpeed = 12f;
     [SerializeField] private PlayerCamera OrientationCamera;
     private Transform _orientation => OrientationCamera.Orientation;
     private float _horizontalInput;
