@@ -7,9 +7,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour, IMove
 {
+    //test
     //https://www.youtube.com/watch?v=f473C43s8nE
-    //- связь полей через общую ссылку на приравненные Transform
-    //orientation у него конечно ещё страннее
+    //- Г±ГўГїГ§Гј ГЇГ®Г«ГҐГ© Г·ГҐГ°ГҐГ§ Г®ГЎГ№ГіГѕ Г±Г±Г»Г«ГЄГі Г­Г  ГЇГ°ГЁГ°Г ГўГ­ГҐГ­Г­Г»ГҐ Transform
+    //orientation Гі Г­ГҐГЈГ® ГЄГ®Г­ГҐГ·Г­Г® ГҐГ№Вё Г±ГІГ°Г Г­Г­ГҐГҐ
     [Header("Movement")]
     [SerializeField] private float _moveSpeed = 7f;
     [SerializeField] private PlayerCamera OrientationCamera;
@@ -85,7 +86,7 @@ public class PlayerMovement : MonoBehaviour, IMove
     }
 
 
-    // метод вызывается новой input-system
+    // Г¬ГҐГІГ®Г¤ ГўГ»Г§Г»ГўГ ГҐГІГ±Гї Г­Г®ГўГ®Г© input-system
     //public void OnJumpNewInput(InputAction.CallbackContext context)
     //{
     //    //Debug.Log("OnJump");
