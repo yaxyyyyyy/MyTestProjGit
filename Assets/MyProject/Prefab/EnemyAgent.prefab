@@ -255,7 +255,6 @@ GameObject:
   - component: {fileID: 7339070789194490091}
   - component: {fileID: 3180001537609510602}
   - component: {fileID: 9211162953720220229}
-  - component: {fileID: 430125466163248205}
   m_Layer: 8
   m_Name: EnemyAgent
   m_TagString: Untagged
@@ -382,24 +381,6 @@ MonoBehaviour:
   beforeShowAttak: 0.7
   showAttak: 0.2
   afterAttak: 3
---- !u!114 &430125466163248205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3086305202584755573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2afb0871e03fe4d4db034c3664a99bda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: 15
-  _maxHealth: 30
-  Ev_Dead:
-    m_PersistentCalls:
-      m_Calls: []
-  mainHelth: {fileID: 4443229795110917242}
 --- !u!1 &7505698391360256330
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,8 +393,8 @@ GameObject:
   - component: {fileID: 2786541274160786889}
   - component: {fileID: 5948665555399677093}
   - component: {fileID: 5174129756216571635}
-  - component: {fileID: 8885263557957412243}
-  - component: {fileID: 4443229795110917242}
+  - component: {fileID: 8510274853605077614}
+  - component: {fileID: 7597533695481919859}
   m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
@@ -510,21 +491,7 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 1.5, z: 0}
---- !u!114 &8885263557957412243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7505698391360256330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca580cc8cfd0f7d4c97226a019fb2cd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: {fileID: 4443229795110917242}
-  percentSpawn: 30
---- !u!114 &4443229795110917242
+--- !u!114 &8510274853605077614
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -536,8 +503,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8eb089e78044e4dbefcd052e5fa8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 15
-  _maxHealth: 15
+  _health: 100
+  _maxHealth: 100
   Ev_Dead:
     m_PersistentCalls:
       m_Calls: []
@@ -545,6 +512,20 @@ MonoBehaviour:
   Ev_changeHP:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7597533695481919859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7505698391360256330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca580cc8cfd0f7d4c97226a019fb2cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 8510274853605077614}
+  percentSpawn: 30
 --- !u!1001 &3513166903342903431
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -560,7 +541,7 @@ PrefabInstance:
     - target: {fileID: 3662707183829707020, guid: 05b05c469212e8c4cab169ffb1979a5b, type: 3}
       propertyPath: _healthEnemy
       value: 
-      objectReference: {fileID: 4443229795110917242}
+      objectReference: {fileID: 8510274853605077614}
     - target: {fileID: 4636043147309019831, guid: 05b05c469212e8c4cab169ffb1979a5b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
