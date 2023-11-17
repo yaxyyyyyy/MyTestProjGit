@@ -10,13 +10,23 @@ public class DirectorSpawnerEnemy : MonoBehaviour
     [SerializeField] private float _maxCoolDownSpawnEnemy = 3f;
     [SerializeField] private float _currentCooldown;
 
+    private void Awake()
+    {
+        SpawnerEnemy.Ev_StartSpawner.AddListener(SetPlayerInSpawnerEnemy);
+    }
+    private void SetPlayerInSpawnerEnemy(SpawnerEnemy spawner)
+    {
+        _spawnersEnemys.Add(spawner);
+        spawner.SetPlayer(_targetPlayerPosition);
+
+    }
     private void Start()
     {
         _currentCooldown = _maxCoolDownSpawnEnemy;
-        foreach(var spawner in _spawnersEnemys)
-        {
-            spawner.SetPlayer(_targetPlayerPosition);
-        }
+        //foreach(var spawner in _spawnersEnemys)
+        //{
+        //    spawner.SetPlayer(_targetPlayerPosition);
+        //}
     }
     private void Update()
     {

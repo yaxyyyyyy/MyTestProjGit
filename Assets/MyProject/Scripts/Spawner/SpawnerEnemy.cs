@@ -1,12 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SpawnerEnemy : SimpleSpawner
 {
     [SerializeField] private Transform _player;
     [SerializeField] private bool _isVisible;
     public bool IsVisible => _isVisible;
+
+    static public UnityEvent<SpawnerEnemy> Ev_StartSpawner = new UnityEvent<SpawnerEnemy>();
+
+    private void Start()
+    {
+        Ev_StartSpawner?.Invoke(this);
+    }
 
     void OnBecameVisible()
     {
