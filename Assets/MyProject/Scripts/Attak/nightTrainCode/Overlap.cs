@@ -25,6 +25,7 @@ public class Overlap
 
     public LayerMask LayerMask => _searchMask;
 
+    public void SetRadius(float radius) { _sphereRadius = radius; }
 
     public List<Collider> TryFind()
     {

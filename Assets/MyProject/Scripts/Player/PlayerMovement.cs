@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour, IMove
     [SerializeField] private Rigidbody _rBody;
 
     [Header("Jump")]
-    [SerializeField] private KeyCode _jumpKey = KeyCode.Space;
+    //[SerializeField] private KeyCode _jumpKey = KeyCode.Space;
     [SerializeField] private float _jumpForce = 12;
     [SerializeField] private float _jumpCooldown = 0.25f;
     [SerializeField] private float _airMultiplier = 0.4f;
@@ -39,6 +39,9 @@ public class PlayerMovement : MonoBehaviour, IMove
 
     //[Header("new Input Check")]
     //[SerializeField] private MyInputActions.MyInputActions _inputActions;
+
+    public void SetMovement(float moveSpeed = 7f, float jumpForce = 12, float jumpCooldown = 0.25f, float airMultiplier = 0.4f)
+    {        _moveSpeed = moveSpeed; _jumpForce = jumpForce; _jumpCooldown = jumpCooldown; _airMultiplier = airMultiplier;    }
     private void Start()
     {
         _rBody.freezeRotation = true;
@@ -73,16 +76,16 @@ public class PlayerMovement : MonoBehaviour, IMove
         _rBody.velocity = _rBody.velocity.sqrMagnitude > _moveSpeed * _moveSpeed ? _rBody.velocity.normalized * _moveSpeed : _rBody.velocity;
     }
 
-    private void SetInputJumpUpd()
-    {
-        if(Input.GetKey(_jumpKey) && _isReadyToJump && _isGrounded)
-        {
-            _isReadyToJump = false;
-            GetJump();
+    //private void SetInputJumpUpd()
+    //{
+    //    if(Input.GetKey(_jumpKey) && _isReadyToJump && _isGrounded)
+    //    {
+    //        _isReadyToJump = false;
+    //        GetJump();
 
-            Invoke(nameof(ResetJump), _jumpCooldown);
-        }
-    }
+    //        Invoke(nameof(ResetJump), _jumpCooldown);
+    //    }
+    //}
 
 
     // לועמה גûחûגאועסÿ םמגמי input-system
@@ -100,7 +103,7 @@ public class PlayerMovement : MonoBehaviour, IMove
     public void OnJump()
     {
         //Debug.Log("OnJump");
-        if (_isReadyToJump && _isGrounded)
+        if (gameObject.activeSelf && _isReadyToJump && _isGrounded)
         {
             _isReadyToJump = false;
             GetJump();

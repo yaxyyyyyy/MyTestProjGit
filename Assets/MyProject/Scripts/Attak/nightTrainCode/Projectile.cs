@@ -25,6 +25,8 @@ public class Projectile : MonoBehaviour
 
     public Rigidbody Rigidbody => _rigidBody;
 
+    public void SetDamage(int damage) { _damage = damage; }
+
 
     private void OnCollisionEnter(Collision collision)
     {

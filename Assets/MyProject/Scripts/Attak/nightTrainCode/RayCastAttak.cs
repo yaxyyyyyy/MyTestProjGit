@@ -31,6 +31,8 @@ public class RayCastAttak : MonoBehaviour, IAttaker
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _audioClip;
 
+    public void SetDamage(int damage) { _damage = damage; }
+
     public void PerfomAttak()
     {
         for (int i = 0; i < _shotCount; i++)

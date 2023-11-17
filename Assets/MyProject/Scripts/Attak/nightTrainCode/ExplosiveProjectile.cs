@@ -5,6 +5,7 @@ using UnityEngine;
 public class ExplosiveProjectile : Projectile
 {
     [SerializeField] private Overlap _overlap;
+    public Overlap OverlapSphere => _overlap;
     private List<Collider> _overlapResults = new List<Collider>(32);
 
     protected override void OnDisposeProjectile()

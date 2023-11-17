@@ -11,6 +11,7 @@ public abstract class Health : MonoBehaviour
     public int MaxHealth => _maxHealth;
 
     public UnityEvent Ev_Dead;
+    public void SetHealth(int health, int maxHealth) { _health =  health; _maxHealth = maxHealth; }
     public virtual void AddDamage(int damage)
     {
         //CECK DEBUG LOG

@@ -8,7 +8,9 @@ public class ProjectileAttak : MonoBehaviour, IAttaker
     [SerializeField] private Projectile _projectilePrefab;
     [SerializeField] private ForceMode _forceMode = ForceMode.Impulse;
     [SerializeField, Min(0f)] private float _force = 10f;
-    
+
+    public Projectile Pref => _projectilePrefab;
+
     public void PerfomAttak()
     {
         var projectile = Instantiate(_projectilePrefab, _weaponMuzzle.position, _weaponMuzzle.rotation);
