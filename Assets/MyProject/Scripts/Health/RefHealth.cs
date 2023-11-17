@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RefHealth : Health
 {
+    //костыль перенаправляющий урон с (gameobject"EnemyAgent" + RefHealth) на (gameobject"Capsule" + mainHelth)
     [SerializeField] Health mainHelth;
     public override void AddDamage(int damage)
     {
