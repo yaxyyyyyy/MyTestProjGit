@@ -13,6 +13,8 @@ public class PlayerCamera : MonoBehaviour
     private float _xRotation;
     private float _yRotation;
 
+    public void SetSensetive(float x = 250f, float y = 250f) { SensX = x; SensY = y; }
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
