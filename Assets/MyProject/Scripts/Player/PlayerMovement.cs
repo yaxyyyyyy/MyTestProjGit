@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour, IMove
     //- ñâÿçü ïîëåé ÷åðåç îáùóþ ññûëêó íà ïðèðàâíåííûå Transform
     //orientation ó íåãî êîíå÷íî åù¸ ñòðàííåå
     [Header("Movement")]
-    [SerializeField] private float _moveSpeed = 7f;
+    [SerializeField] private float _moveSpeed = 12f;
     [SerializeField] private PlayerCamera OrientationCamera;
     private Transform _orientation => OrientationCamera.Orientation;
     private float _horizontalInput;
