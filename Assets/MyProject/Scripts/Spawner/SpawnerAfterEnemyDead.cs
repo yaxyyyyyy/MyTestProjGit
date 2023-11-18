@@ -15,6 +15,7 @@ public class SpawnerAfterEnemyDead : SimpleSpawner
     {
         var item = _pool.GetRealItemInPool();
         item.GetGameObject().transform.position = positionSpawn.position + Vector3.up;
+        Debug.Log("SpawnItem - " + item.GetGameObject().transform.position);
         item.ExitFromPool();
         return item;
     }
