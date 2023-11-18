@@ -19,13 +19,7 @@ public class HealtchDropItem : MonoBehaviour
     {
         if (Random.Range(0, 100) <= percentSpawn)
         {
-            Debug.Log("HealtchDropItem - " + gameObject.transform.position);
             var item = SpawnerAfterEnemyDead.Instance.SpawnItem(gameObject.transform);
-            //Debug.Log(gameObject.transform.position);
-        }
-        else
-        {
-            Debug.Log("none HealtchDropItem - " + gameObject.transform.position);
         }
     }
 
