@@ -73,6 +73,42 @@ namespace MyInputActions
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Forward"",
+                    ""type"": ""Button"",
+                    ""id"": ""527cc64b-b4ba-4760-9332-682a2aef6254"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Left"",
+                    ""type"": ""Button"",
+                    ""id"": ""7115326c-ae13-40c7-8521-dd107632f27e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Right"",
+                    ""type"": ""Button"",
+                    ""id"": ""362583d6-f2d1-4104-9c96-7489d90e6a04"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Back"",
+                    ""type"": ""Button"",
+                    ""id"": ""e2a6b225-964c-4573-999f-c05b134ad5b3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -141,6 +177,94 @@ namespace MyInputActions
                     ""action"": ""SelectWeapon3"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2cd5de41-dbb5-4e4f-8350-caca32de79a1"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Forward"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dcba15b6-3fa7-4bcd-836c-3dc9ddbcb3b8"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Forward"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ee8095eb-2616-4ca2-af84-4e383227a790"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4cb334a3-6c8b-457b-be94-d0fe4c136a8a"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""26b701c7-bdc6-41b4-ab60-43d80d524cc4"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bb85b4de-98e1-40e0-abe1-210639ead6d8"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""39f9d899-ff73-44a6-9622-f93cdfc541dc"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3458188d-7a49-49f6-a656-980cd85f4a56"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -154,6 +278,10 @@ namespace MyInputActions
             m_Player_SelectWeapon1 = m_Player.FindAction("SelectWeapon1", throwIfNotFound: true);
             m_Player_SelectWeapon2 = m_Player.FindAction("SelectWeapon2", throwIfNotFound: true);
             m_Player_SelectWeapon3 = m_Player.FindAction("SelectWeapon3", throwIfNotFound: true);
+            m_Player_Forward = m_Player.FindAction("Forward", throwIfNotFound: true);
+            m_Player_Left = m_Player.FindAction("Left", throwIfNotFound: true);
+            m_Player_Right = m_Player.FindAction("Right", throwIfNotFound: true);
+            m_Player_Back = m_Player.FindAction("Back", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -220,6 +348,10 @@ namespace MyInputActions
         private readonly InputAction m_Player_SelectWeapon1;
         private readonly InputAction m_Player_SelectWeapon2;
         private readonly InputAction m_Player_SelectWeapon3;
+        private readonly InputAction m_Player_Forward;
+        private readonly InputAction m_Player_Left;
+        private readonly InputAction m_Player_Right;
+        private readonly InputAction m_Player_Back;
         public struct PlayerActions
         {
             private @MyInputActions m_Wrapper;
@@ -229,6 +361,10 @@ namespace MyInputActions
             public InputAction @SelectWeapon1 => m_Wrapper.m_Player_SelectWeapon1;
             public InputAction @SelectWeapon2 => m_Wrapper.m_Player_SelectWeapon2;
             public InputAction @SelectWeapon3 => m_Wrapper.m_Player_SelectWeapon3;
+            public InputAction @Forward => m_Wrapper.m_Player_Forward;
+            public InputAction @Left => m_Wrapper.m_Player_Left;
+            public InputAction @Right => m_Wrapper.m_Player_Right;
+            public InputAction @Back => m_Wrapper.m_Player_Back;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -253,6 +389,18 @@ namespace MyInputActions
                 @SelectWeapon3.started += instance.OnSelectWeapon3;
                 @SelectWeapon3.performed += instance.OnSelectWeapon3;
                 @SelectWeapon3.canceled += instance.OnSelectWeapon3;
+                @Forward.started += instance.OnForward;
+                @Forward.performed += instance.OnForward;
+                @Forward.canceled += instance.OnForward;
+                @Left.started += instance.OnLeft;
+                @Left.performed += instance.OnLeft;
+                @Left.canceled += instance.OnLeft;
+                @Right.started += instance.OnRight;
+                @Right.performed += instance.OnRight;
+                @Right.canceled += instance.OnRight;
+                @Back.started += instance.OnBack;
+                @Back.performed += instance.OnBack;
+                @Back.canceled += instance.OnBack;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -272,6 +420,18 @@ namespace MyInputActions
                 @SelectWeapon3.started -= instance.OnSelectWeapon3;
                 @SelectWeapon3.performed -= instance.OnSelectWeapon3;
                 @SelectWeapon3.canceled -= instance.OnSelectWeapon3;
+                @Forward.started -= instance.OnForward;
+                @Forward.performed -= instance.OnForward;
+                @Forward.canceled -= instance.OnForward;
+                @Left.started -= instance.OnLeft;
+                @Left.performed -= instance.OnLeft;
+                @Left.canceled -= instance.OnLeft;
+                @Right.started -= instance.OnRight;
+                @Right.performed -= instance.OnRight;
+                @Right.canceled -= instance.OnRight;
+                @Back.started -= instance.OnBack;
+                @Back.performed -= instance.OnBack;
+                @Back.canceled -= instance.OnBack;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -296,6 +456,10 @@ namespace MyInputActions
             void OnSelectWeapon1(InputAction.CallbackContext context);
             void OnSelectWeapon2(InputAction.CallbackContext context);
             void OnSelectWeapon3(InputAction.CallbackContext context);
+            void OnForward(InputAction.CallbackContext context);
+            void OnLeft(InputAction.CallbackContext context);
+            void OnRight(InputAction.CallbackContext context);
+            void OnBack(InputAction.CallbackContext context);
         }
     }
 }
