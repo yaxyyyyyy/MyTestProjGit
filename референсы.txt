@@ -1,0 +1,27 @@
+ref-game-shooter
+
+CULTIC    - 2022 коридорный шутер pixelart 2d стилизация
+
+Lunacid   - 3d графон с ps2 закос под " King's Field" и " Shadow Tower".
+Spooky's Jump Scare Mansion - процедурная генерация комнат в замке (от того же разраба)
+				в lunacid ачивка на выступе, спавнить, рассыпающиеся под своим весом, ящики чтобы туда забраться
+				напомнило Getting Over It with Bennett Foddy и Only go up / Only Up / Alt F 4 (Альт ф4 игра)
+
+American McGee’s Alice
+northern journey - unrial engine (pekar + MandaloreGaming) норвежский лес + толпа врагов
+		 обзоры      - [mandaloregaming en 15min ] https://www.youtube.com/watch?v=jH5HsoAVEk8
+		 	     - [pekar ru	   3hours] https://www.youtube.com/watch?v=jzXAxHcNfP8
+max payne
+
+красивые деревья в The Witness и её пародии The Looker (головоломки)
+
+serious sam	- не играл
+will rock - 2003 арена      шутер греция+рим serious Sam -like не хватает дешей и платформинга,неочевидно количество врагов в волне (спавнятся, спавнятся потом раз и перестают)
+
+kingdoms		-2d пиксельная стратегия (волны врагов на поселение в центре + смена дня и ночи + пиксельная графика)
+minecraft legends	- как kingdoms но в 3d (слишком простая/затянутая)
+
+20 minutes till dawn	-wampiresurvarious-like
+holocure		-wampiresurvarious-like
+
+русы против ящеров	-у них получилось и у нас получится бюджетный mount and blade)
