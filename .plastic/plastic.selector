@@ -1,4 +1,0 @@
-repository "MyTestProjGit@streetlampintheforest@cloud"
-  path "/"
-    br "/main"
-    co "/main"
