@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using System.Xml;
 
 public class AnimatorTest : MonoBehaviour
 {
@@ -8,6 +10,7 @@ public class AnimatorTest : MonoBehaviour
     public Rigidbody RBody;
     public LayerMask LMask;
     public bool IsGround;
+    public TMP_Text TmpText;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,13 +48,15 @@ public class AnimatorTest : MonoBehaviour
         float verticalAxis = Input.GetAxisRaw("Horizontal");
         float horizontalAxis = Input.GetAxisRaw("Vertical");
 
-        Vector3 movement = gameObject.transform.forward * verticalAxis + gameObject.transform.right * horizontalAxis;
+        Vector3 movement = gameObject.transform.forward * horizontalAxis + gameObject.transform.right * verticalAxis ;
         movement.Normalize();
 
         gameObject.transform.position += movement * 0.04f;
 
-        Anim.SetFloat("Vertical", verticalAxis);
-        Anim.SetFloat("Horizontal", horizontalAxis);
+        TmpText.text = "Vertical=" + verticalAxis + ", Horizontal=" + horizontalAxis;
+
+        Anim.SetFloat("Vertical", horizontalAxis);
+        Anim.SetFloat("Horizontal", verticalAxis );
 
     }
 }
