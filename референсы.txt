@@ -1,6 +1,19 @@
 ref-game-shooter
 
-CULTIC    - 2022 коридорный шутер pixelart 2d стилизация
+CULTIC    - 2022 коридорный шутер pixelart 2d стилизация (как POST VOID)
+	forgive me father - 2D в 3D
+	blood fresh supply - 2D в 3D, найди десять отличий от cultic
+	dread templar
+	nightmare reaper
+	dusk - физон из quake
+	amid evil
+	severed steel
+	prodeus
+	Cathedral 3-D игра
+	Ion Fury, Phantom Fury
+	Nightmare of Decay
+	GUILT: The Deathless - есть листва
+	roboquest - жизнерадостные цвета
 
 Lunacid   - 3d графон с ps2 закос под " King's Field" и " Shadow Tower".
 Spooky's Jump Scare Mansion - процедурная генерация комнат в замке (от того же разраба)
@@ -8,10 +21,17 @@ Spooky's Jump Scare Mansion - процедурная генерация комн
 				напомнило Getting Over It with Bennett Foddy и Only go up / Only Up / Alt F 4 (Альт ф4 игра)
 
 American McGee’s Alice
+шрэк
+
 northern journey - unrial engine (pekar + MandaloreGaming) норвежский лес + толпа врагов
 		 обзоры      - [mandaloregaming en 15min ] https://www.youtube.com/watch?v=jH5HsoAVEk8
 		 	     - [pekar ru	   3hours] https://www.youtube.com/watch?v=jzXAxHcNfP8
 max payne
+
+Warhammer: Vermintide 2 - коридор с толпой врагов co-op
+Left 4 Dead - коридор с толпой врагов co-op
+
+mortal sin
 
 красивые деревья в The Witness и её пародии The Looker (головоломки)
 
@@ -26,12 +46,76 @@ holocure		-wampiresurvarious-like
 
 русы против ящеров	-у них получилось и у нас получится бюджетный mount and blade)
 
-Cruelty Squad - психоделия1
-POST VOID     - психоделия2
+Cruelty Squad - психоделия1 -напоминает cs1.6 с полетевшими текстурами
+POST VOID     - психоделия2 pixelart 2d стилизация (как CULTIC)
 
 Hypnagogia 催眠術 - тащит музыкой
 
+dead by daylight - генератор уровня
+	Identity v - dbd клон с глазами пуговицами
+
+Teardown - vox разрушаемость
+
+Tormented Souls - клон rezident evil
+
+Ghostrunner - паркур с катаной в "киберпанке"
+
+Roboquest - шутер рогалик с хорошим левел дизайном
+https://www.youtube.com/watch?v=L6c4hRUC79I
+
+alica - клон rezident evil + ps1 графон + невозможное для поисковика название
+https://www.ixbt.com/live/games/podrazhatel-rannih-chastey-serii-resident-evil-uspeshno-vyshel-v-reliz.html
+
 (книга) олег рыбаченко - пчела попаданец 
 -------------------------------------------------
+
+toon shader
+varporvave
+kidkore-art
+vewn
+ena
+
+-------------------------------------------------
+мэшапы в музыке - Видео про мэшапы / mashup - FlynnFlyTaggart
+sektorjazza - red crystal castles
+
+3:16 волна цунами из машин
+В чём величие BeamNG.drive [stopgame] -https://www.youtube.com/watch?v=_fBruGDLV9E
+
+курьер
+
+зачистка they are billions - игрок регулирует скорость зачистки + повышение риска и требовательности за повышение скорости
+
+типы активностей - Мототриал, поиск, данж
+
+vewn
+carles dalmau арт
+
+спавн неписей для поднятия статов
+
+паралактическое отображение (текстуры, карта высот, кубич.текстура)
+https://www.youtube.com/watch?v=6QwiThF4NnI - в конце
+https://habr.com/ru/articles/424827/ - статья
+
+текстура воды
+https://www.youtube.com/watch?v=PH9q0HNBjT4
+
+flashback - игра из 90-ых экспозиция/интерлюдия + смена геймрлея ради этого может быть интереснее игры (а может и нет)
+half life - экспозиция поезд = неинтерактив = плохо, перемещение по лабе до катастрофы = хорошо
+warktraft 3 - диалоги между уровнями, несколько побочек на карте работают на экспозицию
+https://www.youtube.com/watch?v=3B_KA2pgbR0
+
+https://www.youtube.com/watch?v=nzwloIFuEKk
+
+-----
+правила лвл дизайна
+для каждого пространства 3 входа 3 выхода не считая достигаемых спец.приёмами
+каждое пространство имеет уникальную экспозицию/тамбнейлы/скетчи  отличающую его от других (форма, светотень, зоны внимания и зоны отдыха)
+все пространства имеют обьекты-линейки-маркеры масштабирующие обьём представляемый игроком (одинаковые бочки/кусты - одна близко другая далеко - контраст между ними помогает понять пространство)
+каждое пространство имеет право на посещение,
+некоторые удалённые друг от друга обязательны к посещению
+пространства наполнены обьектами-историями передающими контекст
+количество деталей равномерно распределено между пространствами
+направления движения прослеживаются, связывают пространства, пересекаются
 
 
